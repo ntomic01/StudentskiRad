@@ -3,25 +3,34 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MasterRad extends StudentskiRad {
-    private Student student;
-    private List <ClanoviKomisije> clanoviKomisije;
 
-    public MasterRad(List <ClanoviKomisije> clanoviKomisije, String naslov, String mentor, Date datumOdbrane) {
-        super(naslov, mentor, datumOdbrane);
-        this.clanoviKomisije = clanoviKomisije;
+    private List<ClanKomisije> clanoviKomisije;
+
+    public MasterRad(int ocena, String naslov, String mentor, Date datumOdbrane, Student student) {
+        super(ocena, naslov, mentor, datumOdbrane, student);
+        this.clanoviKomisije = new ArrayList<>();
     }
 
-    public List<ClanoviKomisije> getClanoviKomisije() {
+    public List<ClanKomisije> getClanoviKomisije() {
         return clanoviKomisije;
     }
 
-    public void setClanoviKomisije(List<ClanoviKomisije> clanoviKomisije) {
+    public void setClanoviKomisije(List<ClanKomisije> clanoviKomisije) {
         this.clanoviKomisije = clanoviKomisije;
     }
 
-    public void dodajStudenta(Student student){
-
+    public void dodajClanaKomisije(ClanKomisije clanKomisije) {
+        this.clanoviKomisije.add(clanKomisije);
     }
 
 
+    @Override
+    public boolean validan() {
+        return clanoviKomisije != null && clanoviKomisije.size() > 0;
+    }
+
+    @Override
+    public boolean polozen() {
+        return getOcena() >= 6;
+    }
 }

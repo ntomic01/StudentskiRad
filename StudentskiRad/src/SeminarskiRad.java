@@ -1,22 +1,19 @@
 import java.util.Date;
 
-public class SeminarskiRad extends StudentskiRad{
+public class SeminarskiRad extends StudentskiRad {
 
-    private int ocena;
-
-    private Student student;
-
-    public SeminarskiRad(int ocena, String naslov, String mentor, Date datumOdbrane) {
-        super(naslov, mentor, datumOdbrane);
-        this.ocena = ocena;
+    public SeminarskiRad(int ocena, String naslov, String mentor, Date datumOdbrane, Student student) {
+        super(ocena, naslov, mentor, datumOdbrane, student);
     }
 
-    public int getOcena() {
-        return ocena;
+    @Override
+    public boolean validan() {
+        return getMentor() != null;
     }
 
-    public void setOcena(int ocena) {
-        this.ocena = ocena;
+    @Override
+    public boolean polozen() {
+        return getOcena() >= 8;
     }
 
 }

@@ -1,40 +1,16 @@
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student extends Osoba {
 
-    private String ime;
-
-    private String prezime;
-
     private String brojIndeksa;
 
-    private String jmbg;
     private List<StudentskiRad> listaStudentskihRadova;
 
-    public Student(String ime, String prezime, String brojIndeksa, List<StudentskiRad> listaStudentskihRadova, String jmbg) {
+    public Student(String ime, String prezime, String brojIndeksa, String jmbg) {
         super(ime, prezime, jmbg);
-        this.ime = ime;
-        this.prezime = prezime;
         this.brojIndeksa = brojIndeksa;
-        this.listaStudentskihRadova = listaStudentskihRadova;
-        this.jmbg = jmbg;
-    }
-
-    public String getIme() {
-        return ime;
-    }
-
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
-
-    public String getPrezime() {
-        return prezime;
-    }
-
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
+        this.listaStudentskihRadova = new ArrayList<>();
     }
 
     public String getBrojIndeksa() {
@@ -45,11 +21,11 @@ public class Student extends Osoba {
         this.brojIndeksa = brojIndeksa;
     }
 
-    public String getJmbg() {
-        return jmbg;
+    public void dodajStudenskiRad(StudentskiRad studentskiRad) {
+        this.listaStudentskihRadova.add(studentskiRad);
     }
 
-    public void setJmbg(String jmbg) {
-        this.jmbg = jmbg;
+    public List<StudentskiRad> getListaStudentskihRadova() {
+        return listaStudentskihRadova;
     }
 }

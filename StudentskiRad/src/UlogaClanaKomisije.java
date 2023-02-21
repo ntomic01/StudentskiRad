@@ -1,4 +1,4 @@
-public enum ClanoviKomisije {
+public enum UlogaClanaKomisije {
 
     profesor,
 
